@@ -16,11 +16,12 @@
             justify-content: center;
             height: 100vh;
             overflow: hidden;
+            position: relative;
         }
 
         h1 {
             font-size: 3rem;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
 
         p {
@@ -39,22 +40,45 @@
 
         @keyframes float {
             from { transform: translateY(0px); }
-            to { transform: translateY(-20px); }
+            to { transform: translateY(-15px); }
         }
 
         .button {
-            padding: 10px 20px;
-            font-size: 16px;
+            padding: 12px 20px;
+            font-size: 18px;
             color: white;
             background-color: #ff4081;
             border: none;
             border-radius: 20px;
             cursor: pointer;
             margin-top: 20px;
+            transition: 0.3s;
         }
 
         .button:hover {
             background-color: #e91e63;
+        }
+
+        /* Falling Hearts Animation */
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: red;
+            opacity: 0.7;
+            animation: fall 5s linear infinite;
+        }
+
+        @keyframes fall {
+            from { transform: translateY(-10vh) scale(1); opacity: 1; }
+            to { transform: translateY(100vh) scale(0.5); opacity: 0; }
+        }
+
+        /* Hug Message */
+        .hug-message {
+            font-size: 1.5rem;
+            color: #ff4081;
+            display: none;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -68,24 +92,56 @@
         You're my heart, my happiness, and my forever. 💖  
     </p>
 
-    <!-- Cute Bubu and Dudu Stickers -->
+    <!-- Bubu and Dudu Stickers -->
     <img class="sticker" src="https://media.giphy.com/media/cINRfTCEmXjXm/giphy.gif" alt="Bubu and Dudu Hug">
     <img class="sticker" src="https://media.giphy.com/media/l1J9JVeMHa2rdaE5W/giphy.gif" alt="Bubu and Dudu Kiss">
     <img class="sticker" src="https://media.giphy.com/media/XaMdcUfgN7rtdOSnFt/giphy.gif" alt="Bubu and Dudu Blushing">
     <img class="sticker" src="https://media.giphy.com/media/eXqfyvfFsRgFbyh4To/giphy.gif" alt="Bubu and Dudu I'm Sorry">
     <img class="sticker" src="https://media.giphy.com/media/Qy7pcYSo16dOEadOEG/giphy.gif" alt="Bubu and Dudu Holding Hands">
 
-    <!-- Audio Player (Hidden) -->
+    <!-- Falling Hearts Container -->
+    <div id="hearts-container"></div>
+
+    <!-- Hug Button -->
+    <button class="button" onclick="sendHug()">Send a Virtual Hug 🤗</button>
+    <p class="hug-message" id="hugMessage">You just sent me the biggest, warmest hug! 🥰💖</p>
+
+    <!-- Audio Player -->
     <audio id="bg-music" loop>
         <source src="jaan-nissar.mp3" type="audio/mp3">
     </audio>
-
-    <!-- Play Music Button -->
     <button class="button" onclick="playMusic()">Click to Play Music 🎶</button>
 
     <script>
+        // Function to play music
         function playMusic() {
             document.getElementById("bg-music").play();
+        }
+
+        // Falling Hearts Animation
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.innerHTML = "❤️";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = Math.random() * 3 + 2 + "s"; // Random fall speed
+            document.getElementById("hearts-container").appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        setInterval(createHeart, 500); // Create a new heart every 0.5 seconds
+
+        // Virtual Hug Button Action
+        function sendHug() {
+            const hugMessage = document.getElementById("hugMessage");
+            hugMessage.style.display = "block";
+
+            setTimeout(() => {
+                hugMessage.style.display = "none";
+            }, 3000);
         }
     </script>
 
