@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm Sorry ❤️</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #ffecf1;
+            overflow: hidden;
+        }
+        h1 {
+            color: #ff6b81;
+            font-size: 3em;
+            margin-top: 10vh;
+            animation: bounce 1s infinite alternate;
+        }
+        .sticker {
+            width: 150px;
+            margin: 10px;
+            animation: float 2s infinite alternate ease-in-out;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background: #ff6b81;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .button:hover {
+            background: #ff4757;
+        }
+        @keyframes bounce {
+            from { transform: translateY(0px); }
+            to { transform: translateY(-10px); }
+        }
+        @keyframes float {
+            from { transform: translateY(0px); }
+            to { transform: translateY(-15px); }
+        }
+        /* Falling hearts animation */
+        .heart {
+            position: absolute;
+            color: #ff4757;
+            font-size: 2rem;
+            animation: fall 4s linear infinite;
+            opacity: 0.8;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-100px) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>I'm Sorry, My Love ❤️</h1>
+    <img class="sticker" src="https://media.giphy.com/media/3o6Zt481isNVuQI1l6/giphy.gif" alt="Cute Sticker">
+    <img class="sticker" src="https://media.giphy.com/media/26AHONQ79FdWZhAI0/giphy.gif" alt="Apology Sticker">
+    
+    <p>Hope you can forgive me! 🥺💕</p>
+
+    <!-- Button to restart music -->
+    <button class="button" onclick="playMusic()">Click for a Hug! 🤗</button>
+
+    <!-- Background Music -->
+    <audio id="bg-music" loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-tenderness.mp3" type="audio/mp3">
+    </audio>
+
+    <script>
+        // Autoplay music
+        window.onload = function() {
+            document.getElementById("bg-music").play().catch(() => console.log("Autoplay blocked"));
+        }
+
+        // Function to play music on button click
+        function playMusic() {
+            document.getElementById("bg-music").play();
+            alert("Sending you a virtual hug! 🤗💕");
+        }
+
+        // Generate falling hearts
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+            heart.innerHTML = "❤️";
+            document.body.appendChild(heart);
+            
+            setTimeout(() => heart.remove(), 4000);
+        }
+
+        setInterval(createHeart, 500);
+    </script>
+
+</body>
+</html>
