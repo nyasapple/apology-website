@@ -3,101 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I'm Sorry ❤️</title>
+    <title>I'm Sorry, My Love ❤️</title>
     <style>
         body {
             text-align: center;
             font-family: Arial, sans-serif;
-            background-color: #ffecf1;
+            background-color: #ffe6f2;
+            color: #ff4081;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
             overflow: hidden;
         }
+
         h1 {
-            color: #ff6b81;
-            font-size: 3em;
-            margin-top: 10vh;
-            animation: bounce 1s infinite alternate;
+            font-size: 3rem;
+            margin-bottom: 20px;
         }
+
+        p {
+            font-size: 1.3rem;
+            max-width: 500px;
+            line-height: 1.5;
+            color: #ff4081;
+            padding: 10px;
+        }
+
         .sticker {
-            width: 150px;
+            width: 120px;
             margin: 10px;
-            animation: float 2s infinite alternate ease-in-out;
+            animation: float 2s infinite alternate;
         }
-        .button {
-            padding: 10px 20px;
-            font-size: 1.2em;
-            background: #ff6b81;
-            color: white;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .button:hover {
-            background: #ff4757;
-        }
-        @keyframes bounce {
-            from { transform: translateY(0px); }
-            to { transform: translateY(-10px); }
-        }
+
         @keyframes float {
             from { transform: translateY(0px); }
-            to { transform: translateY(-15px); }
+            to { transform: translateY(-20px); }
         }
-        /* Falling hearts animation */
-        .heart {
-            position: absolute;
-            color: #ff4757;
-            font-size: 2rem;
-            animation: fall 4s linear infinite;
-            opacity: 0.8;
+
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #ff4081;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-top: 20px;
         }
-        @keyframes fall {
-            0% { transform: translateY(-100px) rotate(0deg); }
-            100% { transform: translateY(100vh) rotate(360deg); }
+
+        .button:hover {
+            background-color: #e91e63;
         }
     </style>
 </head>
 <body>
 
     <h1>I'm Sorry, My Love ❤️</h1>
-    <img class="sticker" src="https://media.giphy.com/media/3o6Zt481isNVuQI1l6/giphy.gif" alt="Cute Sticker">
-    <img class="sticker" src="https://media.giphy.com/media/26AHONQ79FdWZhAI0/giphy.gif" alt="Apology Sticker">
-    
-    <p>Hope you can forgive me! 🥺💕</p>
+    <p>  
+        My love, I know I made a mistake, and I truly regret it.  
+        You mean everything to me, and I never want to see you upset.  
+        Please forgive me. I promise to be better and love you endlessly.  
+        You're my heart, my happiness, and my forever. 💖  
+    </p>
 
-    <!-- Button to restart music -->
-    <button class="button" onclick="playMusic()">Click for a Hug! 🤗</button>
+    <!-- Cute Bubu and Dudu Stickers -->
+    <img class="sticker" src="https://media.giphy.com/media/cINRfTCEmXjXm/giphy.gif" alt="Bubu and Dudu Hug">
+    <img class="sticker" src="https://media.giphy.com/media/l1J9JVeMHa2rdaE5W/giphy.gif" alt="Bubu and Dudu Kiss">
+    <img class="sticker" src="https://media.giphy.com/media/XaMdcUfgN7rtdOSnFt/giphy.gif" alt="Bubu and Dudu Blushing">
+    <img class="sticker" src="https://media.giphy.com/media/eXqfyvfFsRgFbyh4To/giphy.gif" alt="Bubu and Dudu I'm Sorry">
+    <img class="sticker" src="https://media.giphy.com/media/Qy7pcYSo16dOEadOEG/giphy.gif" alt="Bubu and Dudu Holding Hands">
 
-    <!-- Background Music -->
+    <!-- Audio Player (Hidden) -->
     <audio id="bg-music" loop>
-        <source src="https://www.bensound.com/bensound-music/bensound-tenderness.mp3" type="audio/mp3">
+        <source src="jaan-nissar.mp3" type="audio/mp3">
     </audio>
 
-    <script>
-        // Autoplay music
-        window.onload = function() {
-            document.getElementById("bg-music").play().catch(() => console.log("Autoplay blocked"));
-        }
+    <!-- Play Music Button -->
+    <button class="button" onclick="playMusic()">Click to Play Music 🎶</button>
 
-        // Function to play music on button click
+    <script>
         function playMusic() {
             document.getElementById("bg-music").play();
-            alert("Sending you a virtual hug! 🤗💕");
         }
-
-        // Generate falling hearts
-        function createHeart() {
-            const heart = document.createElement("div");
-            heart.classList.add("heart");
-            heart.style.left = Math.random() * 100 + "vw";
-            heart.style.animationDuration = Math.random() * 2 + 3 + "s";
-            heart.innerHTML = "❤️";
-            document.body.appendChild(heart);
-            
-            setTimeout(() => heart.remove(), 4000);
-        }
-
-        setInterval(createHeart, 500);
     </script>
 
 </body>
