@@ -14,9 +14,8 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
-            overflow: hidden;
-            position: relative;
+            min-height: 100vh; /* Changed height: 100vh to min-height */
+            overflow-x: hidden; /* Only hide horizontal overflow */
         }
 
         h1 {
@@ -84,7 +83,7 @@
 </head>
 <body>
 
-    <h1>I'm Sorry, My Love ❤️</h1>
+    <h1>I'm Sorry, Baby❤️</h1>
     <p>  
         My love, I know I made a mistake, and I truly regret it.  
         You mean everything to me, and I never want to see you upset.  
@@ -92,8 +91,8 @@
         You're my heart, my happiness, and my forever. 💖  
     </p>
 
-    <!-- Bubu and Dudu Stickers -->
-   <img class="sticker" src="img1.jpeg" alt="Bubu and Dudu Hug">
+    <!-- Local Bubu and Dudu Stickers -->
+    <img class="sticker" src="img1.jpeg" alt="Bubu and Dudu Hug">
     <img class="sticker" src="img2.jpeg" alt="Bubu and Dudu Kiss">
     <img class="sticker" src="img3.jpeg" alt="Bubu and Dudu Blushing">
     <img class="sticker" src="img4.jpeg" alt="Bubu and Dudu I'm Sorry">
@@ -104,7 +103,7 @@
 
     <!-- Hug Button -->
     <button class="button" onclick="sendHug()">Send a Virtual Hug 🤗</button>
-    <p class="hug-message" id="hugMessage"> I would love to send u the biggest, warmest hug! 🥰💖</p>
+    <p class="hug-message" id="hugMessage">I'm sending u the biggest and warmest hug! 🥰💖</p>
 
     <!-- Audio Player -->
     <audio id="bg-music" loop>
